@@ -25,7 +25,10 @@
   <div class="title-wrapper">
     <div class="container">
 
-      <img (click)="changeTitle()" src="/assets/images/logo.png" class="pull-left logo" alt="The Will Will Web">
+      <img (click)="changeTitle()"
+            [src]="sitelogo"
+            [title]="sitename"
+            class="pull-left logo">
 
       <div class="pull-left">
         <h1>
@@ -33,7 +36,7 @@
             {{sitename}}
           </a>
         </h1>
-        <h3>記載著 Will 在網路世界的學習心得與技術分享</h3>
+        <h3 [innerHTML]="subtitle"></h3>
       </div>
 
       <div id="social-icons" class="pull-right social-icon">
