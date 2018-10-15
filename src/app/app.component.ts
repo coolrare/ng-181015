@@ -14,6 +14,12 @@ export class AppComponent {
     console.log('Your search: ' + value);
   }
 
+  doDelete(id: number) {
+    this.data = this.data.filter((item) => {
+      return item.id != id;
+    })
+  }
+
   data = [
     {
       id: 1,
