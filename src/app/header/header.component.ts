@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  sitename = 'Hello World'
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changeTitle() {
+    this.sitename = 'The Will Will Web'
   }
 
 }
