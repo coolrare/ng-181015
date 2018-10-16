@@ -13,6 +13,10 @@ export class AppComponent {
   constructor(public datasvc: DataService) {
   }
 
+  ngOnInit(): void {
+    this.datasvc.load();
+  }
+
   public get page(): number {
     return parseInt(this.keyword);
   }
