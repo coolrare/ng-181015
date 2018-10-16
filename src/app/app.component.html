@@ -9,7 +9,7 @@
           <div id="ctl00_cphBody_PostList1_posts" class="posts">
 
             <!-- Article START-->
-            <app-article *ngFor="let item of data|slice:page:page+3"
+            <app-article *ngFor="let item of datasvc.data|slice:page:page+3"
               [item]="item"
               (delete)="doDelete($event)">
             </app-article>
