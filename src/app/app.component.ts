@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
+import { Article } from './Article';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,15 @@ export class AppComponent {
   title = 'demo1';
   keyword = '0';
 
+  data: Article[];
+
   constructor(public datasvc: DataService) {
   }
 
   ngOnInit(): void {
-    this.datasvc.load();
+    this.datasvc.load().subscribe((values) => {
+      this.data = values;
+    });
   }
 
   public get page(): number {
@@ -27,6 +32,12 @@ export class AppComponent {
   }
 
   doDelete(id: number) {
-    this.datasvc.doDelete(id);
+    this.datasvc.doDelete(id).subscribe((v) => {
+
+      this.datasvc.load().subscribe((values) => {
+        this.data = values;
+      });
+
+    });
   }
 }

@@ -6,21 +6,16 @@ import { Article } from './Article';
   providedIn: 'root'
 })
 export class DataService {
-  data: Article[];
+  //data: Article[];
 
   constructor(private http: HttpClient) { }
 
   load() {
-    this.http.get('http://localhost:3000/articles')
-      .subscribe((values: Article[]) => {
-        this.data = values;
-      });
+    return this.http.get<Article[]>('http://localhost:3000/articles');
   }
 
   doDelete(id: number) {
-    this.data = this.data.filter((item) => {
-      return item.id != id;
-    });
+    return this.http.delete('http://localhost:3000/articles/'+id);
   }
 
 }
