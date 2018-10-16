@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo1';
-  keyword = '123';
+  keyword = '0';
+
+  public get page(): number {
+    return parseInt(this.keyword);
+  }
 
   doSearch(value) {
     this.keyword = value;
