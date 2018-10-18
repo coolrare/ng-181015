@@ -11,15 +11,13 @@ export class AppComponent {
   title = 'demo1';
   keyword = '0';
 
-  data: Article[];
+  data$;
 
   constructor(public datasvc: DataService) {
   }
 
   ngOnInit(): void {
-    this.datasvc.load().subscribe((values) => {
-      this.data = values;
-    });
+    this.data$ = this.datasvc.load();
   }
 
   public get page(): number {
@@ -34,9 +32,7 @@ export class AppComponent {
   doDelete(id: number) {
     this.datasvc.doDelete(id).subscribe((v) => {
 
-      this.datasvc.load().subscribe((values) => {
-        this.data = values;
-      });
+      this.data$ = this.datasvc.load();
 
     });
   }
